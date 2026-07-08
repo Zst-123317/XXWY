@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>公眾號文章列表 · 媽祖背景</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #888888;
+            --text-muted: #b0b0b0;
+            --border-color: #f0f0f0;
+            --max-width: 600px;
+            --radius-md: 10px;
+            --font-title: 16px;
+            --font-meta: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang TC', 'PingFang SC', 'STSong', 'SimSun', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            /* 媽祖背景 - body 層 */
+            background-color: #d0d8e0;
+            background-image:
+                radial-gradient(ellipse 35% 28% at 28% 22%, rgba(240, 200, 120, 0.45) 0%, rgba(220, 170, 60, 0.18) 35%, transparent 65%),
+                radial-gradient(ellipse 22% 18% at 28% 20%, rgba(255, 230, 160, 0.55) 0%, rgba(240, 200, 100, 0.2) 40%, transparent 60%),
+                conic-gradient(from 0deg at 28% 22%,
+                    transparent 0deg, rgba(255, 220, 140, 0.12) 8deg, transparent 16deg,
+                    transparent 35deg, rgba(255, 220, 140, 0.10) 42deg, transparent 50deg,
+                    transparent 70deg, rgba(255, 220, 140, 0.08) 78deg, transparent 86deg,
+                    transparent 105deg, rgba(255, 220, 140, 0.11) 112deg, transparent 120deg,
+                    transparent 140deg, rgba(255, 220, 140, 0.09) 148deg, transparent 156deg,
+                    transparent 175deg, rgba(255, 220, 140, 0.10) 183deg, transparent 192deg,
+                    transparent 210deg, rgba(255, 220, 140, 0.07) 218deg, transparent 226deg,
+                    transparent 245deg, rgba(255, 220, 140, 0.12) 253deg, transparent 262deg,
+                    transparent 280deg, rgba(255, 220, 140, 0.08) 288deg, transparent 298deg,
+                    transparent 315deg, rgba(255, 220, 140, 0.10) 323deg, transparent 332deg,
+                    transparent 350deg, rgba(255, 220, 140, 0.09) 358deg, transparent 360deg),
+                url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Cdefs%3E%3CradialGradient id='glow' cx='50%25' cy='35%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffe8a0' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23f0c860' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23d4a840' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='78' cy='60' rx='55' ry='50' fill='url(%23glow)'/%3E%3Cpath d='M78 35 C68 35 58 45 56 58 C54 68 58 78 65 82 C70 84 86 84 91 82 C98 78 102 68 100 58 C98 45 88 35 78 35Z' fill='%23d4a860' opacity='0.65'/%3E%3Cpath d='M60 42 C65 34 72 28 78 26 C84 28 91 34 96 42 L94 44 C89 37 83 32 78 30 C73 32 67 37 62 44Z' fill='%23f0d080' opacity='0.7'/%3E%3Cline x1='64' y1='44' x2='64' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='69' y1='42' x2='69' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='74' y1='40' x2='74' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='78' y1='39' x2='78' y2='47' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='82' y1='40' x2='82' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='87' y1='42' x2='87' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='92' y1='44' x2='92' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cpath d='M78 105 C68 100 55 90 50 82 C48 88 52 96 60 102 C66 106 72 108 78 108 C84 108 90 106 96 102 C104 96 108 88 106 82 C101 90 88 100 78 105Z' fill='%23f0c8c0' opacity='0.45'/%3E%3Cpath d='M78 100 C70 96 60 88 56 80 C54 86 58 94 64 98 C68 101 74 103 78 103 C82 103 88 101 92 98 C98 94 102 86 100 80 C96 88 86 96 78 100Z' fill='%23f5d8d0' opacity='0.5'/%3E%3Cpath d='M30 70 C24 66 18 68 16 72 C14 76 16 80 20 82 C16 84 14 88 16 92 C18 95 24 96 28 94 C30 98 36 99 40 96 C44 92 42 86 38 82 C42 80 44 76 42 72 C40 68 34 66 30 70Z' fill='%23f5e8c0' opacity='0.35'/%3E%3Cpath d='M118 58 C112 54 106 56 104 60 C102 64 104 68 108 70 C104 72 102 76 104 80 C106 83 112 84 116 82 C118 86 124 87 128 84 C132 80 130 74 126 70 C130 68 132 64 130 60 C128 56 122 54 118 58Z' fill='%23f5e8c0' opacity='0.3'/%3E%3Ccircle cx='40' cy='55' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='118' cy='48' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='60' cy='30' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3Ccircle cx='95' cy='28' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3C/svg%3E"),
+                radial-gradient(circle 16px at 6% 38%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 6% 36%, #f0c060 0%, transparent 100%),
+                radial-gradient(circle 16px at 92% 42%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 92% 40%, #f0c060 0%, transparent 100%),
+                radial-gradient(ellipse 8px 14px at 14% 52%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 18% 56%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 9px 15px at 34% 50%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 11px at 54% 54%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 8px 13px at 70% 51%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 84% 55%, #f5d5cd 0%, transparent 100%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 38% auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            background-position: 0 0,0 0,0 0,20% 8%,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* 主容器 - 海洋背景 */
+        .app-container {
+            width: 100%;
+            max-width: var(--max-width);
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 60px rgba(10, 40, 70, 0.45);
+            overflow-x: hidden;
+            background:
+                radial-gradient(ellipse 180% 30% at 15% 15%, rgba(255, 255, 255, 0.55) 0%, transparent 50%),
+                radial-gradient(ellipse 140% 22% at 55% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 48%),
+                radial-gradient(ellipse 160% 26% at 80% 18%, rgba(255, 255, 255, 0.5) 0%, transparent 52%),
+                radial-gradient(ellipse 120% 20% at 30% 22%, rgba(255, 255, 255, 0.45) 0%, transparent 45%),
+                radial-gradient(ellipse 50% 60% at 50% 25%, rgba(255, 245, 200, 0.35) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 50% at 50% 35%, rgba(255, 240, 180, 0.25) 0%, transparent 60%),
+                linear-gradient(180deg, #a8d8f0 0%, #8cc8e8 8%, #78bce0 18%, #5ba8d4 30%, #3d94c0 45%, #2b80ae 58%, #1e6d9a 68%, #175d88 78%, #124f78 88%, #0e4265 100%);
+            background-size: 100% 100%;
+            background-attachment: scroll;
+        }
+
+        /* 海浪波紋 */
+        .app-container::before {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.22;
+            background-image:
+                repeating-linear-gradient(0deg, transparent 0px, transparent 28px, rgba(255,255,255,0.2) 28px, rgba(255,255,255,0.2) 30px, transparent 30px, transparent 58px),
+                repeating-linear-gradient(0deg, transparent 0px, transparent 42px, rgba(200,225,245,0.25) 42px, rgba(200,225,245,0.25) 44px, transparent 44px, transparent 72px);
+            background-position: 0 55%, 8px 50%;
+            background-size: 100% 120px, 100% 140px;
+            animation: waveDrift 8s ease-in-out infinite;
+            -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 42%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.4) 78%, transparent 90%);
+            mask-image: linear-gradient(180deg, transparent 0%, transparent 42%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.4) 78%, transparent 90%);
+        }
+        @keyframes waveDrift {
+            0%,100%{ background-position: 0 55%, 8px 50%; }
+            25%{ background-position: 4px 53%, 12px 48%; }
+            50%{ background-position: 8px 55%, 4px 52%; }
+            75%{ background-position: 2px 57%, 10px 50%; }
+        }
+
+        .app-container::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.15;
+            background-image:
+                radial-gradient(ellipse 120% 15% at 50% 88%, #e8d5a3 0%, transparent 60%),
+                radial-gradient(ellipse 100% 12% at 50% 92%, #d4c090 0%, transparent 55%),
+                radial-gradient(circle 4px at 22% 28%, #fff 0%, transparent 100%),
+                radial-gradient(circle 3px at 21% 27%, #fff 0%, transparent 100%),
+                radial-gradient(circle 3px at 24% 27%, #fff 0%, transparent 100%),
+                radial-gradient(circle 4px at 48% 22%, #fff 0%, transparent 100%),
+                radial-gradient(circle 3px at 47% 21%, #fff 0%, transparent 100%),
+                radial-gradient(circle 3px at 50% 21%, #fff 0%, transparent 100%),
+                radial-gradient(circle 3px at 68% 30%, #fff 0%, transparent 100%),
+                radial-gradient(circle 2px at 67% 29%, #fff 0%, transparent 100%),
+                radial-gradient(circle 2px at 70% 29%, #fff 0%, transparent 100%),
+                radial-gradient(circle 3px at 18% 48%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 3px at 42% 58%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 3px at 78% 56%, #f5d89a 0%, transparent 100%);
+            background-size: 100% 100%;
+            animation: sparkle 4s ease-in-out infinite;
+        }
+        @keyframes sparkle {
+            0%,100%{opacity:0.14} 30%{opacity:0.22} 60%{opacity:0.16} 85%{opacity:0.24}
+        }
+
+        /* 內容區塊需要半透明白底以保持可讀性 */
+        .content-overlay {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            background: rgba(255,252,248,0.85);
+            backdrop-filter: blur(2px);
+        }
+
+        /* 導航欄 */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(237,237,237,0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-bar .back-btn {
+            font-size: 20px;
+            color: #1a3a5a;
+            cursor: pointer;
+            padding: 4px 8px;
+            user-select: none;
+            transition: background 0.2s;
+            border-radius: 4px;
+        }
+        .nav-bar .nav-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a3a5a;
+            letter-spacing: 0.5px;
+        }
+        .nav-bar .more-btn {
+            font-size: 20px;
+            color: #1a3a5a;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        /* 搜尋欄 */
+        .search-bar-wrap {
+            padding: 8px 16px;
+            background: rgba(237,237,237,0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 44px;
+            z-index: 99;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.9);
+            border-radius: 8px;
+            padding: 10px 14px;
+            gap: 8px;
+            cursor: pointer;
+            border: 0.5px solid rgba(0,0,0,0.1);
+            transition: background 0.2s;
+        }
+        .search-bar:active {
+            background: rgba(255,255,255,0.7);
+        }
+        .search-bar .search-icon {
+            font-size: 15px;
+            color: #999;
+        }
+        .search-bar .search-placeholder {
+            font-size: 14px;
+            color: #b0b0b0;
+            flex: 1;
+        }
+
+        /* 文章列表 */
+        .article-list {
+            padding: 8px 12px 20px;
+        }
+
+        /* 文章卡片 - 左文右圖 */
+        .article-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(5px);
+            border-radius: var(--radius-md);
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 0.5px solid rgba(255,255,255,0.6);
+            user-select: none;
+        }
+        .article-item:active {
+            background: rgba(255,255,255,0.75);
+            transform: scale(0.985);
+        }
+
+        .article-info {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .article-title {
+            font-size: var(--font-title);
+            font-weight: 500;
+            color: #1a3050;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+        .article-meta {
+            font-size: var(--font-meta);
+            color: #5a7a90;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .article-meta .source {
+            font-weight: 500;
+            color: #2b7098;
+            flex-shrink: 0;
+        }
+        .article-meta .dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: #a0b8c8;
+            flex-shrink: 0;
+        }
+        .article-thumb {
+            width: 100px;
+            height: 72px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            object-fit: cover;
+            background-color: #d0e0e8;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(20,50,80,0.86);
+            color: #f5f0e0;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        @media (max-width: 500px) {
+            .app-container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            .article-item {
+                border-radius: 8px;
+                padding: 12px;
+            }
+            .article-list {
+                padding: 8px 8px 20px;
+            }
+            .search-bar-wrap {
+                padding: 8px 12px;
+            }
+        }
+        @media (min-width: 501px) {
+            body {
+                padding: 20px 0;
+            }
+            .app-container {
+                border-radius: 20px;
+                overflow: hidden;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toast" id="toast"></div>
+
+    <div class="app-container">
+        <div class="content-overlay">
+            <!-- 導航欄（返回按鈕已改為執行 goBack） -->
+            <div class="nav-bar">
+                <span class="back-btn" onclick="goBack()">←</span>
+                <span class="nav-title">訂閱號消息</span>
+                <span class="more-btn" onclick="showToast('更多選項')">⋯</span>
+            </div>
+
+            <!-- 搜尋欄 -->
+            <div class="search-bar-wrap">
+                <div class="search-bar" onclick="showToast('搜尋文章')">
+                    <span class="search-icon">🔍</span>
+                    <span class="search-placeholder">搜尋文章內容</span>
+                </div>
+            </div>
+
+            <!-- 文章列表 -->
+            <div class="article-list" id="articleListContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // 返回上一頁功能
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // 沒有歷史記錄時，嘗試關閉頁面或提示
+                if (window.opener) {
+                    window.close();
+                } else {
+                    showToast('已經是第一頁了');
+                }
+            }
+        }
+
+        function getRelativeDate(daysAgo) {
+            const now = new Date();
+            const target = new Date(now);
+            target.setDate(now.getDate() - daysAgo);
+            return `${target.getFullYear()}年${target.getMonth()+1}月${target.getDate()}日`;
+        }
+
+        const articles = [
+            { id:1, title:'探索AI的無限可能：從大語言模型到通用人工智慧的進化之路', source:'創意星球實驗室', daysAgo:0, thumb:'https://picsum.photos/id/1015/200/144' },
+            { id:2, title:'2026年設計趨勢報告：極簡主義回歸與新擬物化崛起', source:'設計思維研究室', daysAgo:0, thumb:'https://picsum.photos/id/1025/200/144' },
+            { id:3, title:'10個提升效率的隱藏技巧，讓你事半功倍', source:'效率生活家', daysAgo:1, thumb:'https://picsum.photos/id/1035/200/144' },
+            { id:4, title:'深度解析：多模態AI的未來應用場景', source:'創意星球實驗室', daysAgo:1, thumb:'https://picsum.photos/id/1045/200/144' },
+            { id:5, title:'初學者指南：如何開始你的AI繪畫之旅', source:'AI藝術工坊', daysAgo:2, thumb:'https://picsum.photos/id/1055/200/144' },
+            { id:6, title:'如何建立高效的遠端工作流程', source:'效率生活家', daysAgo:3, thumb:'https://picsum.photos/id/1065/200/144' },
+            { id:7, title:'2026上半年必裝App推薦清單', source:'數位生活誌', daysAgo:3, thumb:'https://picsum.photos/id/1075/200/144' },
+            { id:8, title:'設計思維：從靈感到落地的完整流程', source:'設計思維研究室', daysAgo:4, thumb:'https://picsum.photos/id/1085/200/144' }
+        ];
+
+        function renderArticles() {
+            const container = document.getElementById('articleListContainer');
+            if (!container) return;
+            container.innerHTML = articles.map(article => {
+                const displayDate = getRelativeDate(article.daysAgo);
+                return `
+				<div class="article-item" onclick="location.href='cs2.html?id=' + ${article.id}">
+                    <div class="article-info">
+                        <div class="article-title">${article.title}</div>
+                        <div class="article-meta">
+                            <span class="source">${article.source}</span>
+                            <span class="dot"></span>
+                            <span>${displayDate}</span>
+                        </div>
+                    </div>
+                    <img class="article-thumb" src="${article.thumb}" alt="${article.title}" loading="lazy" onerror="this.style.background='#d0e0e8'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 72%22%3E%3Crect fill=%22%23d0e0e8%22 width=%22100%22 height=%2272%22/%3E%3Ctext x=%2250%22 y=%2236%22 text-anchor=%22middle%22 fill=%22%2388aabb%22 font-size=%2210%22%3E暫無圖片%3C/text%3E%3C/svg%3E';">
+                </div>`;
+            }).join('');
+        }
+
+        function openArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (article) showToast(`開啟文章：${article.title.substring(0,15)}...`);
+            else showToast('文章不存在');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => toast.classList.remove('show'), 1500);
+        }
+
+        window.addEventListener('DOMContentLoaded', renderArticles);
+        console.log('🌊 媽祖背景文章列表（返回上一頁功能已啟用）');
+    </script>
+</body>
+</html>

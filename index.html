@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>公眾號主頁 · 湄洲島媽祖</title>
+    <style>
+        :root {
+            --ocean-light: #5b9ecf;
+            --ocean-mid: #3b7db5;
+            --ocean-deep: #1e5a8a;
+            --sky-blue: #87ceeb;
+            --sky-light: #b8e0f0;
+            --sand-gold: #e8d5a3;
+            --sand-light: #f5e8c9;
+            --gold-accent: #c9a84c;
+            --white-cap: #f0f7fc;
+            --mazu-gold: #d4a840;
+            --mazu-red: #b8443a;
+            --lotus-pink: #f0c8c0;
+            --max-width: 500px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --font-body: 15px;
+            --font-small: 13px;
+            --font-title: 17px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang TC', 'STSong', 'SimSun', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            /* body 背景：簡潔灰底，疊加媽祖文化元素 */
+            background-color: #d0d8e0;
+            background-image:
+                /* 媽祖金色光暈 - 位於天空區域 */
+                radial-gradient(ellipse 35% 28% at 28% 22%, rgba(240, 200, 120, 0.45) 0%, rgba(220, 170, 60, 0.18) 35%, transparent 65%),
+                radial-gradient(ellipse 22% 18% at 28% 20%, rgba(255, 230, 160, 0.55) 0%, rgba(240, 200, 100, 0.2) 40%, transparent 60%),
+                /* 媽祖光芒放射 */
+                conic-gradient(from 0deg at 28% 22%,
+                    transparent 0deg, rgba(255, 220, 140, 0.12) 8deg, transparent 16deg,
+                    transparent 35deg, rgba(255, 220, 140, 0.10) 42deg, transparent 50deg,
+                    transparent 70deg, rgba(255, 220, 140, 0.08) 78deg, transparent 86deg,
+                    transparent 105deg, rgba(255, 220, 140, 0.11) 112deg, transparent 120deg,
+                    transparent 140deg, rgba(255, 220, 140, 0.09) 148deg, transparent 156deg,
+                    transparent 175deg, rgba(255, 220, 140, 0.10) 183deg, transparent 192deg,
+                    transparent 210deg, rgba(255, 220, 140, 0.07) 218deg, transparent 226deg,
+                    transparent 245deg, rgba(255, 220, 140, 0.12) 253deg, transparent 262deg,
+                    transparent 280deg, rgba(255, 220, 140, 0.08) 288deg, transparent 298deg,
+                    transparent 315deg, rgba(255, 220, 140, 0.10) 323deg, transparent 332deg,
+                    transparent 350deg, rgba(255, 220, 140, 0.09) 358deg, transparent 360deg),
+                /* 媽祖SVG剪影 */
+                url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Cdefs%3E%3CradialGradient id='glow' cx='50%25' cy='35%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffe8a0' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23f0c860' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23d4a840' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!--光暈--%3E%3Cellipse cx='78' cy='60' rx='55' ry='50' fill='url(%23glow)'/%3E%3C!--媽祖面部輪廓--%3E%3Cpath d='M78 35 C68 35 58 45 56 58 C54 68 58 78 65 82 C70 84 86 84 91 82 C98 78 102 68 100 58 C98 45 88 35 78 35Z' fill='%23d4a860' opacity='0.65'/%3E%3C!--冕旒/頭飾--%3E%3Cpath d='M60 42 C65 34 72 28 78 26 C84 28 91 34 96 42 L94 44 C89 37 83 32 78 30 C73 32 67 37 62 44Z' fill='%23f0d080' opacity='0.7'/%3E%3C!--冕旒珠簾--%3E%3Cline x1='64' y1='44' x2='64' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='69' y1='42' x2='69' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='74' y1='40' x2='74' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='78' y1='39' x2='78' y2='47' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='82' y1='40' x2='82' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='87' y1='42' x2='87' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='92' y1='44' x2='92' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3C!--蓮花座--%3E%3Cpath d='M78 105 C68 100 55 90 50 82 C48 88 52 96 60 102 C66 106 72 108 78 108 C84 108 90 106 96 102 C104 96 108 88 106 82 C101 90 88 100 78 105Z' fill='%23f0c8c0' opacity='0.45'/%3E%3Cpath d='M78 100 C70 96 60 88 56 80 C54 86 58 94 64 98 C68 101 74 103 78 103 C82 103 88 101 92 98 C98 94 102 86 100 80 C96 88 86 96 78 100Z' fill='%23f5d8d0' opacity='0.5'/%3E%3C!--祥雲--%3E%3Cpath d='M30 70 C24 66 18 68 16 72 C14 76 16 80 20 82 C16 84 14 88 16 92 C18 95 24 96 28 94 C30 98 36 99 40 96 C44 92 42 86 38 82 C42 80 44 76 42 72 C40 68 34 66 30 70Z' fill='%23f5e8c0' opacity='0.35'/%3E%3Cpath d='M118 58 C112 54 106 56 104 60 C102 64 104 68 108 70 C104 72 102 76 104 80 C106 83 112 84 116 82 C118 86 124 87 128 84 C132 80 130 74 126 70 C130 68 132 64 130 60 C128 56 122 54 118 58Z' fill='%23f5e8c0' opacity='0.3'/%3E%3C!--金色光點--%3E%3Ccircle cx='40' cy='55' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='118' cy='48' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='60' cy='30' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3Ccircle cx='95' cy='28' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3C/svg%3E"),
+                /* 祈福燈籠 (body層級) */
+                radial-gradient(circle 16px at 6% 38%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 6% 36%, #f0c060 0%, transparent 100%),
+                radial-gradient(circle 16px at 92% 42%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 92% 40%, #f0c060 0%, transparent 100%),
+                /* 散落的蓮花光點 */
+                radial-gradient(ellipse 8px 14px at 14% 52%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 18% 56%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 9px 15px at 34% 50%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 11px at 54% 54%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 8px 13px at 70% 51%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 84% 55%, #f5d5cd 0%, transparent 100%);
+            background-size:
+                100% 100%, 100% 100%, 100% 100%,
+                38% auto,
+                100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            background-position:
+                0 0, 0 0, 0 0,
+                20% 8%,
+                0 0, 0 0, 0 0, 0 0,
+                0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* ==================== 內容容器 ==================== */
+        .app-container {
+            width: 100%;
+            max-width: var(--max-width);
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 60px rgba(10, 40, 70, 0.45), 0 0 0 1px rgba(150, 180, 200, 0.25), 0 0 120px rgba(100, 160, 200, 0.15);
+            overflow-x: hidden;
+            /* 湄洲島海洋背景 */
+            background:
+                /* 白雲層 */
+                radial-gradient(ellipse 180% 30% at 15% 15%, rgba(255, 255, 255, 0.55) 0%, transparent 50%),
+                radial-gradient(ellipse 140% 22% at 55% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 48%),
+                radial-gradient(ellipse 160% 26% at 80% 18%, rgba(255, 255, 255, 0.5) 0%, transparent 52%),
+                radial-gradient(ellipse 120% 20% at 30% 22%, rgba(255, 255, 255, 0.45) 0%, transparent 45%),
+                /* 陽光灑落 */
+                radial-gradient(ellipse 50% 60% at 50% 25%, rgba(255, 245, 200, 0.35) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 50% at 50% 35%, rgba(255, 240, 180, 0.25) 0%, transparent 60%),
+                /* 天空漸變 */
+                linear-gradient(180deg,
+                    #a8d8f0 0%,
+                    #8cc8e8 8%,
+                    #78bce0 18%,
+                    #5ba8d4 30%,
+                    #3d94c0 45%,
+                    #2b80ae 58%,
+                    #1e6d9a 68%,
+                    #175d88 78%,
+                    #124f78 88%,
+                    #0e4265 100%);
+            background-attachment: scroll;
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+        }
+
+        /* 海浪波紋層 */
+        .app-container::before {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.28;
+            background-image:
+                repeating-linear-gradient(0deg,
+                    transparent 0px,
+                    transparent 28px,
+                    rgba(255, 255, 255, 0.25) 28px,
+                    rgba(255, 255, 255, 0.25) 30px,
+                    transparent 30px,
+                    transparent 58px),
+                repeating-linear-gradient(0deg,
+                    transparent 0px,
+                    transparent 42px,
+                    rgba(200, 225, 245, 0.3) 42px,
+                    rgba(200, 225, 245, 0.3) 44px,
+                    transparent 44px,
+                    transparent 72px);
+            background-position: 0 55%, 8px 50%;
+            background-size: 100% 120px, 100% 140px;
+            animation: waveDrift 8s ease-in-out infinite;
+            mask-image: linear-gradient(180deg,
+                    transparent 0%, transparent 42%, rgba(0, 0, 0, 0.6) 50%,
+                    rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.4) 78%, transparent 90%);
+            -webkit-mask-image: linear-gradient(180deg,
+                    transparent 0%, transparent 42%, rgba(0, 0, 0, 0.6) 50%,
+                    rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.4) 78%, transparent 90%);
+        }
+
+        @keyframes waveDrift {
+            0%,
+            100% {
+                background-position: 0 55%, 8px 50%;
+            }
+            25% {
+                background-position: 4px 53%, 12px 48%;
+            }
+            50% {
+                background-position: 8px 55%, 4px 52%;
+            }
+            75% {
+                background-position: 2px 57%, 10px 50%;
+            }
+        }
+
+        /* 沙灘 + 海鷗 + 少量金色光點 */
+        .app-container::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.18;
+            background-image:
+                /* 沙灘金色光斑 */
+                radial-gradient(ellipse 120% 15% at 50% 88%, #e8d5a3 0%, transparent 60%),
+                radial-gradient(ellipse 100% 12% at 50% 92%, #d4c090 0%, transparent 55%),
+                /* 海鷗 */
+                radial-gradient(circle 4px at 22% 28%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 3px at 21% 27%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 3px at 24% 27%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 4px at 48% 22%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 3px at 47% 21%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 3px at 50% 21%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 3px at 68% 30%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 2px at 67% 29%, #ffffff 0%, transparent 100%),
+                radial-gradient(circle 2px at 70% 29%, #ffffff 0%, transparent 100%),
+                /* 金色光點 */
+                radial-gradient(circle 3px at 18% 48%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 2px at 32% 52%, #e8c878 0%, transparent 100%),
+                radial-gradient(circle 3px at 55% 45%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 2px at 72% 50%, #e8c878 0%, transparent 100%),
+                radial-gradient(circle 3px at 85% 47%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 2px at 12% 55%, #e8c878 0%, transparent 100%),
+                radial-gradient(circle 3px at 42% 58%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 2px at 62% 54%, #e8c878 0%, transparent 100%),
+                radial-gradient(circle 3px at 78% 56%, #f5d89a 0%, transparent 100%),
+                radial-gradient(circle 2px at 25% 60%, #e8c878 0%, transparent 100%),
+                /* 燈塔光束 */
+                radial-gradient(ellipse 8% 25% at 88% 35%, rgba(255, 250, 200, 0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 6% 20% at 86% 38%, rgba(255, 248, 180, 0.5) 0%, transparent 65%);
+            background-size: 100% 100%;
+            animation: sparkle 4s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%,
+            100% {
+                opacity: 0.14;
+            }
+            30% {
+                opacity: 0.22;
+            }
+            60% {
+                opacity: 0.16;
+            }
+            85% {
+                opacity: 0.24;
+            }
+        }
+
+        /* 內容覆蓋層 */
+        .content-overlay {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(180, 200, 220, 0.03) 2px, rgba(180, 200, 220, 0.03) 3px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(180, 200, 220, 0.03) 2px, rgba(180, 200, 220, 0.03) 3px),
+                linear-gradient(180deg, rgba(255, 252, 248, 0.93) 0%, rgba(250, 246, 238, 0.94) 30%, rgba(245, 238, 226, 0.92) 100%);
+        }
+
+        /* 以下為導航、頭像、按鈕、文章、影片等組件樣式，與前版保持一致 */
+        .status-bar {
+            height: env(safe-area-inset-top, 20px);
+            background: linear-gradient(180deg, rgba(30, 80, 120, 0.08) 0%, transparent 100%);
+            min-height: 20px;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            background: linear-gradient(180deg, rgba(255, 250, 242, 0.94) 0%, rgba(248, 240, 226, 0.88) 100%);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 44px;
+            border-bottom: 1px solid rgba(150, 170, 190, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .nav-bar .back-btn {
+            position: absolute;
+            left: 14px;
+            font-size: 20px;
+            color: #1a3a5a;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .nav-bar .back-btn:hover {
+            background: rgba(100, 150, 200, 0.10);
+        }
+        .nav-bar .nav-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a3a5a;
+            letter-spacing: 0.8px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .nav-bar .more-btn {
+            position: absolute;
+            right: 14px;
+            font-size: 20px;
+            color: #1a3a5a;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .nav-bar .more-btn:hover {
+            background: rgba(100, 150, 200, 0.10);
+        }
+
+        .profile-header {
+            background: linear-gradient(180deg, rgba(255, 252, 244, 0.88) 0%, rgba(250, 244, 232, 0.84) 50%, rgba(245, 236, 220, 0.80) 100%);
+            padding: 20px 20px 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(180, 190, 200, 0.28);
+            position: relative;
+        }
+        .profile-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 8%;
+            width: 84%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(120, 160, 190, 0.45), rgba(120, 160, 190, 0.45), transparent);
+        }
+        .profile-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            background: linear-gradient(135deg, #3b8cc0, #1e5a8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #f5f0e0;
+            box-shadow: 0 3px 16px rgba(20, 80, 140, 0.35);
+            border: 2px solid rgba(180, 200, 160, 0.45);
+        }
+        .profile-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a3050;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .profile-id {
+            font-size: 13px;
+            color: #5a7a90;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .profile-desc {
+            font-size: 13px;
+            color: #6a8a9a;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            letter-spacing: 0.3px;
+        }
+        .profile-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 4px;
+        }
+        .follow-btn-top {
+            display: inline-block;
+            padding: 8px 28px;
+            /* background: linear-gradient(180deg, #4da3d8 0%, #2b7db5 50%, #1a5f8f 100%); */
+            /* color: #f8f4e8; */
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.25s;
+            /* box-shadow: 0 3px 14px rgba(20, 80, 140, 0.40); */
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+            /* border: 1px solid rgba(180, 210, 200, 0.30); */
+			background: linear-gradient(180deg, #07c160 0%, #06ad56 50%, #059a4a 100%);
+			color: #ffffff;
+			box-shadow: 0 3px 14px rgba(7, 193, 96, 0.4);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .follow-btn-top:active {
+            /* background: linear-gradient(180deg, #2b7db5 0%, #1a5f8f 50%, #124878 100%);
+            transform: scale(0.96);
+            box-shadow: 0 1px 8px rgba(15, 60, 110, 0.45); */
+			background: linear-gradient(180deg, #06ad56 0%, #059a4a 50%, #048640 100%);
+			box-shadow: 0 1px 8px rgba(7, 193, 96, 0.5);
+        }
+        .follow-btn-top.followed {
+            /* background: linear-gradient(180deg, #c8c0a8 0%, #b8b098 100%);
+            color: #4a5a6a;
+            box-shadow: 0 2px 8px rgba(80, 90, 100, 0.18);
+            border: 1px solid rgba(160, 170, 180, 0.35); */
+			background: linear-gradient(180deg, #e0e0e0 0%, #d0d0d0 100%);
+			color: #666666;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .message-btn-top {
+            display: inline-block;
+            padding: 8px 28px;
+            background: rgba(255, 252, 244, 0.45);
+            color: #1a5f8f;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1.5px solid #5ba0c8;
+            border-radius: 20px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.25s;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+            backdrop-filter: blur(4px);
+        }
+        .message-btn-top:active {
+            background: rgba(100, 180, 220, 0.15);
+            transform: scale(0.96);
+            border-color: #1a5f8f;
+            color: #124878;
+        }
+
+        .carousel-section {
+            margin: 12px 12px 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(10, 40, 70, 0.22);
+            border: 1.5px solid rgba(150, 190, 210, 0.35);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            will-change: transform;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #f8f4e8;
+            letter-spacing: 1.5px;
+            user-select: none;
+            position: relative;
+            cursor: pointer;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .carousel-slide:nth-child(1) {
+            background: linear-gradient(135deg, #1e5a8a 0%, #3b8cc0 30%, #2b7098 60%, #154878 100%);
+        }
+        .carousel-slide:nth-child(2) {
+            background: linear-gradient(135deg, #2a6070 0%, #4a8898 30%, #3a7888 60%, #1a5060 100%);
+        }
+        .carousel-slide:nth-child(3) {
+            background: linear-gradient(135deg, #3a4a6a 0%, #5a6a8a 30%, #4a5a7a 60%, #2a3a5a 100%);
+        }
+        .carousel-slide .slide-label {
+            position: absolute;
+            bottom: 12px;
+            left: 16px;
+            font-size: 13px;
+            font-weight: 500;
+            background: rgba(20, 50, 80, 0.55);
+            padding: 5px 14px;
+            border-radius: 14px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(180, 210, 200, 0.40);
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            padding: 8px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+        }
+        .carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(220, 235, 245, 0.45);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .carousel-dot.active {
+            width: 20px;
+            background: #b8d8f0;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(150, 200, 230, 0.65);
+        }
+
+        .icon-buttons-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 16px 16px 12px;
+            background: linear-gradient(180deg, rgba(255, 252, 244, 0.86) 0%, rgba(248, 242, 228, 0.81) 100%);
+            margin: 0 12px;
+            border-radius: var(--radius-md);
+            margin-top: 12px;
+            box-shadow: 0 2px 12px rgba(10, 40, 70, 0.10);
+            border: 1px solid rgba(160, 190, 210, 0.25);
+        }
+        .icon-btn-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px 4px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+            user-select: none;
+            text-decoration: none;
+			background: #c8e6c9;                              /* 豆綠色底 */
+			border: 1.5px solid rgba(200, 170, 100, 0.65);   /* 淺金色細描邊 */
+        }
+        .icon-btn-item:active {
+            background: rgba(150, 190, 220, 0.12);
+            transform: scale(0.94);
+        }
+        .icon-btn-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+        .icon-btn-item:active .icon-btn-circle {
+            transform: scale(0.9);
+        }
+        .icon-btn-circle.articles {
+            background: #e8f2f8;
+            color: #2b7098;
+            border: 1.5px solid rgba(120, 170, 200, 0.40);
+        }
+        .icon-btn-circle.videos {
+            background: #eef5f0;
+            color: #3a7860;
+            border: 1.5px solid rgba(120, 180, 160, 0.40);
+        }
+        .icon-btn-circle.photos {
+            background: #f0f0f8;
+            color: #4a5a8a;
+            border: 1.5px solid rgba(140, 150, 180, 0.40);
+        }
+        .icon-btn-circle.services {
+            background: #f5f0e8;
+            color: #8a6a3a;
+            border: 1.5px solid rgba(180, 150, 100, 0.40);
+        }
+        .icon-btn-label {
+            font-size: 12px;
+            color: #4a6a7a;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 16px 10px;
+            margin: 0 12px;
+        }
+        .section-title {
+            font-size: var(--font-title);
+            font-weight: 700;
+            color: #1a3a5a;
+            position: relative;
+            padding-left: 14px;
+            letter-spacing: 0.6px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            border-radius: 2px;
+            background: linear-gradient(180deg, #4da3d8 0%, #1e5a8a 100%);
+        }
+        .section-more {
+            font-size: 13px;
+            color: #2b7098;
+            cursor: pointer;
+            user-select: none;
+            letter-spacing: 0.4px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .section-more:active {
+            opacity: 0.6;
+        }
+
+        .article-list {
+            margin: 0 12px;
+            background: rgba(255, 252, 244, 0.88);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(10, 40, 70, 0.08);
+            border: 1px solid rgba(160, 190, 210, 0.22);
+        }
+        .article-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid rgba(180, 200, 210, 0.18);
+            user-select: none;
+        }
+        .article-item:last-child {
+            border-bottom: none;
+        }
+        .article-item:active {
+            background: rgba(200, 220, 235, 0.14);
+        }
+        .article-thumb {
+            width: 90px;
+            height: 68px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #f8f4e8;
+            border: 1px solid rgba(150, 180, 200, 0.30);
+        }
+        .article-info {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .article-title-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a3050;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #6a8a9a;
+        }
+        .article-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(150, 190, 210, 0.15);
+            border-radius: 3px;
+            font-size: 11px;
+            color: #2b7098;
+            border: 1px solid rgba(140, 180, 200, 0.26);
+            letter-spacing: 0.3px;
+        }
+
+        .video-scroll {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 8px 16px 16px;
+            margin: 0 12px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            background: rgba(255, 252, 244, 0.88);
+            border-radius: var(--radius-md);
+            box-shadow: 0 2px 10px rgba(10, 40, 70, 0.08);
+            border: 1px solid rgba(160, 190, 210, 0.22);
+        }
+        .video-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .video-card {
+            min-width: 160px;
+            flex-shrink: 0;
+            cursor: pointer;
+            scroll-snap-align: start;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+        .video-card:active {
+            transform: scale(0.96);
+        }
+        .video-thumb {
+            width: 160px;
+            height: 100px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            position: relative;
+            margin-bottom: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(150, 180, 200, 0.30);
+        }
+        .video-thumb::after {
+            content: '▶';
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: rgba(20, 50, 80, 0.65);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #f8f4e8;
+            border: 1px solid rgba(180, 210, 200, 0.40);
+        }
+        .video-card:nth-child(1) .video-thumb {
+            background: linear-gradient(135deg, #6aacd0, #4a8ab0);
+        }
+        .video-card:nth-child(2) .video-thumb {
+            background: linear-gradient(135deg, #5a9080, #3a7060);
+        }
+        .video-card:nth-child(3) .video-thumb {
+            background: linear-gradient(135deg, #7a8aaa, #5a6a8a);
+        }
+        .video-card:nth-child(4) .video-thumb {
+            background: linear-gradient(135deg, #6a8a9a, #4a6a7a);
+        }
+        .video-title {
+            font-size: 13px;
+            color: #2a4050;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            margin: 0 12px;
+            background: rgba(255, 252, 244, 0.88);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            padding: 4px;
+            box-shadow: 0 2px 10px rgba(10, 40, 70, 0.08);
+            border: 1px solid rgba(160, 190, 210, 0.22);
+        }
+        .photo-item {
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            font-weight: 600;
+            user-select: none;
+            border: 1px solid rgba(180, 200, 210, 0.26);
+        }
+        .photo-item:active {
+            opacity: 0.75;
+        }
+        .photo-item:nth-child(1) {
+            background: linear-gradient(135deg, #8abcd0, #6a9ab0);
+        }
+        .photo-item:nth-child(2) {
+            background: linear-gradient(135deg, #a0b8c0, #8098a0);
+        }
+        .photo-item:nth-child(3) {
+            background: linear-gradient(135deg, #b0c0d0, #90a0b0);
+        }
+        .photo-item:nth-child(4) {
+            background: linear-gradient(135deg, #9ab0c0, #7a90a0);
+        }
+        .photo-item:nth-child(5) {
+            background: linear-gradient(135deg, #c0c8b0, #a0a890);
+        }
+        .photo-item:nth-child(6) {
+            background: linear-gradient(135deg, #b0b8c0, #9098a0);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 0 12px;
+            padding: 4px 0;
+        }
+        .service-card {
+            background: rgba(255, 252, 244, 0.88);
+            border-radius: var(--radius-md);
+            padding: 16px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(10, 40, 70, 0.08);
+            transition: all 0.2s;
+            user-select: none;
+            border: 1px solid rgba(160, 190, 210, 0.22);
+        }
+        .service-card:active {
+            background: rgba(210, 225, 240, 0.60);
+            transform: scale(0.97);
+        }
+        .service-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .service-icon.s1 {
+            background: #e8f2f8;
+            color: #2b7098;
+            border: 1px solid rgba(120, 170, 200, 0.40);
+        }
+        .service-icon.s2 {
+            background: #eef5f0;
+            color: #3a7860;
+            border: 1px solid rgba(120, 180, 160, 0.40);
+        }
+        .service-icon.s3 {
+            background: #f0f0f8;
+            color: #4a5a8a;
+            border: 1px solid rgba(140, 150, 180, 0.40);
+        }
+        .service-icon.s4 {
+            background: #f5f0e8;
+            color: #8a6a3a;
+            border: 1px solid rgba(180, 150, 100, 0.40);
+        }
+        .service-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .service-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a3050;
+            margin-bottom: 2px;
+            letter-spacing: 0.4px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .service-desc {
+            font-size: 12px;
+            color: #6a8a9a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .footer-area {
+            text-align: center;
+            padding: 24px 16px 40px;
+            font-size: 12px;
+            color: #8a9aa8;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .footer-area .divider-line {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8abcd0, transparent);
+            margin: 0 auto 12px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(20, 50, 80, 0.86);
+            color: #f5f0e0;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(180, 210, 200, 0.48);
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'STSong', 'SimSun', serif;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* 響應式 */
+        @media (max-width: 500px) {
+            .app-container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            .carousel-section {
+                margin: 10px 8px 0;
+            }
+            .icon-buttons-row {
+                margin: 10px 8px 0;
+                padding: 12px 8px 8px;
+            }
+            .section-header {
+                margin: 0 8px;
+                padding: 14px 10px 8px;
+            }
+            .article-list {
+                margin: 0 8px;
+            }
+            .video-scroll {
+                margin: 0 8px;
+                padding: 8px 10px 14px;
+            }
+            .photo-grid {
+                margin: 0 8px;
+            }
+            .services-grid {
+                margin: 0 8px;
+                gap: 8px;
+            }
+            .app-container::before {
+                opacity: 0.20;
+                animation: waveDriftMobile 8s ease-in-out infinite;
+            }
+            .app-container::after {
+                opacity: 0.12;
+            }
+            body {
+                background-size:
+                    100% 100%, 100% 100%, 100% 100%,
+                    32% auto,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+                background-position:
+                    0 0, 0 0, 0 0,
+                    16% 6%,
+                    0 0, 0 0, 0 0, 0 0,
+                    0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            }
+        }
+
+        @keyframes waveDriftMobile {
+            0%,
+            100% {
+                background-position: 0 55%, 6px 50%;
+            }
+            25% {
+                background-position: 3px 53%, 9px 48%;
+            }
+            50% {
+                background-position: 6px 55%, 3px 52%;
+            }
+            75% {
+                background-position: 1px 57%, 8px 50%;
+            }
+        }
+
+        @media (max-width: 375px) {
+            body {
+                background-size:
+                    100% 100%, 100% 100%, 100% 100%,
+                    28% auto,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+                background-position:
+                    0 0, 0 0, 0 0,
+                    14% 5%,
+                    0 0, 0 0, 0 0, 0 0,
+                    0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            }
+            .profile-avatar {
+                width: 56px;
+                height: 56px;
+                font-size: 26px;
+            }
+            .profile-name {
+                font-size: 16px;
+            }
+            .follow-btn-top,
+            .message-btn-top {
+                padding: 7px 22px;
+                font-size: 13px;
+            }
+            .icon-btn-circle {
+                width: 42px;
+                height: 42px;
+                font-size: 21px;
+            }
+            .icon-btn-label {
+                font-size: 11px;
+            }
+        }
+
+        @media (min-width: 501px) {
+            body {
+                padding: 20px 0;
+                background-color: #c0c8d0;
+            }
+            .app-container {
+                border-radius: 20px;
+                overflow: hidden;
+                margin: 10px 0;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toast" id="toast"></div>
+
+    <div class="app-container">
+        <div class="content-overlay">
+            <div class="status-bar"></div>
+
+            <div class="nav-bar">
+                <span class="back-btn" onclick="showToast('返回')">←</span>
+                <span class="nav-title">公眾號詳情</span>
+                <span class="more-btn" onclick="showToast('更多選項')">⋯</span>
+            </div>
+
+            <div class="profile-header">
+				<img class="profile-avatar" src="./static/tx.png" alt="頭像" style="object-fit: cover;">
+                <!-- <div class="profile-avatar">🚀</div> -->
+                <div class="profile-name">慈媽台灣角</div>
+                <!-- <div class="profile-id">微信號：CreativeLab</div> -->
+                <div class="profile-desc">慈媽中國台灣角 聽慈媽說咱的根於日常</div>
+                <div class="profile-actions">
+                    <button class="follow-btn-top" id="followBtnTop" onclick="toggleFollow()">+ 關注</button>
+                    <button class="message-btn-top" onclick="showToast('開啟私訊視窗')">私訊</button>
+                </div>
+            </div>
+
+            <div class="carousel-section" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"
+					style="background-image: url('./static/mazu.png'); background-size: cover; background-position: center;" 
+					onclick="showToast('輪播圖1：最新活動')">
+                        🎉 限時福利 · 會員免費領
+                        <span class="slide-label">🔥 熱門活動</span>
+                    </div>
+                    <div class="carousel-slide" 
+					style="background-image: url('./static/mazu.png'); background-size: cover; background-position: center;" 
+					onclick="showToast('輪播圖2：新課上線')">
+                        📚 AI繪畫實戰課程
+                        <span class="slide-label">🆕 新課上線</span>
+                    </div>
+                    <div class="carousel-slide"
+					 style="background-image: url('./static/mazu.png'); background-size: cover; background-position: center;" 
+					 onclick="showToast('輪播圖3：工具推薦')">
+                        🛠️ 效率工具合集
+                        <span class="slide-label">⭐ 編輯推薦</span>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots">
+                    <span class="carousel-dot active" data-index="0"></span>
+                    <span class="carousel-dot" data-index="1"></span>
+                    <span class="carousel-dot" data-index="2"></span>
+                </div>
+            </div>
+
+            <div class="icon-buttons-row">
+                <div class="icon-btn-item" onclick="window.location.href='wz.html'">
+                    <div class="icon-btn-circle articles">📝</div>
+                    <span class="icon-btn-label"><h3>文章</h3></span>
+					<span class="icon-btn-label"><h3>慈媽悄悄話</h3></span>
+                </div>
+                <div class="icon-btn-item" onclick="window.location.href='yp.html'">
+                    <div class="icon-btn-circle videos">🎬</div>
+                    <span class="icon-btn-label"><h3>影片</h3></span>
+					<span class="icon-btn-label"><h3>慈媽影像集</h3></span>
+                </div>
+                <div class="icon-btn-item" onclick="window.location.href='zp.html'">
+                    <div class="icon-btn-circle photos">🖼️</div>
+                    <span class="icon-btn-label"><h3>貼圖</h3></span>
+					<span class="icon-btn-label"><h3>慈媽小文創</h3></span>
+                </div>
+                <div class="icon-btn-item" onclick="window.location.href='cs2.html'">
+                    <div class="icon-btn-circle services">🎯</div>
+                    <span class="icon-btn-label"><h3>服務</h3></span>
+					<span class="icon-btn-label"><h3>慈媽幫幫忙</h3></span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="section-title">最新文章</span>
+                <span class="section-more" onclick="showToast('檢視更多文章')">檢視全部 ›</span>
+            </div>
+            <div class="article-list">
+                <div class="article-item" onclick="showToast('開啟文章：《探索AI的無限可能》')">
+                    <!-- <div class="article-thumb" style="background: linear-gradient(135deg, #3b8cc0, #1e5a8a);">🤖</div> -->
+					<img class="article-thumb" src="./static/mazu.png" alt="文章缩略图" style="object-fit: cover;">
+                    <div class="article-info">
+                        <div class="article-title-text">探索AI的無限可能：從大語言模型到通用人工智慧</div>
+                        <div class="article-meta-row">
+                            <span>3天前</span>
+                            <span class="article-tag">AI前沿</span>
+                            <span>閱讀 4.2萬</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-item" onclick="showToast('開啟文章：《2026設計趨勢報告》')">
+                    <!-- <div class="article-thumb" style="background: linear-gradient(135deg, #4a8898, #2a6070);">🎨</div> -->
+					<img class="article-thumb" src="./static/mazu.png" alt="文章缩略图" style="object-fit: cover;">
+                    <div class="article-info">
+                        <div class="article-title-text">2026年設計趨勢報告：極簡主義回歸與新擬物化崛起</div>
+                        <div class="article-meta-row">
+                            <span>5天前</span>
+                            <span class="article-tag">設計</span>
+                            <span>閱讀 2.8萬</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-item" onclick="showToast('開啟文章：《效率工具大盤點》')">
+                    <!-- <div class="article-thumb" style="background: linear-gradient(135deg, #5a6a8a, #3a4a6a);">⚡</div> -->
+					<img class="article-thumb" src="./static/mazu.png" alt="文章缩略图" style="object-fit: cover;">
+                    <div class="article-info">
+                        <div class="article-title-text">2026上半年效率工具大盤點，這10款神器你用了幾個？</div>
+                        <div class="article-meta-row">
+                            <span>1週前</span>
+                            <span class="article-tag">工具</span>
+                            <span>閱讀 6.1萬</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="section-title">精選影片</span>
+                <span class="section-more" onclick="showToast('檢視更多影片')">檢視全部 ›</span>
+            </div>
+            <div class="video-scroll">
+                <div class="video-card" onclick="showToast('播放影片：AI繪畫教學')">
+                    <div class="video-thumb"></div>
+                    <div class="video-title">AI繪畫零基礎入門教學</div>
+                </div>
+                <div class="video-card" onclick="showToast('播放影片：設計思維')">
+                    <div class="video-thumb"></div>
+                    <div class="video-title">設計思維：從靈感到落地</div>
+                </div>
+                <div class="video-card" onclick="showToast('播放影片：效率秘笈')">
+                    <div class="video-thumb"></div>
+                    <div class="video-title">10個提升效率的隱藏技巧</div>
+                </div>
+                <div class="video-card" onclick="showToast('播放影片：工具測評')">
+                    <div class="video-thumb"></div>
+                    <div class="video-title">2026必裝工具真實測評</div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="section-title">精彩貼圖</span>
+                <span class="section-more" onclick="showToast('檢視更多圖片')">檢視全部 ›</span>
+            </div>
+            <div class="photo-grid">
+				<div class="photo-item" 
+				     style="background-image: url('./static/mazu2.png'); background-size: cover; background-position: center;" 
+				     onclick="showToast('檢視大圖')">
+				</div>
+				<div class="photo-item" 
+				     style="background-image: url('./static/mazu2.png'); background-size: cover; background-position: center;" 
+				     onclick="showToast('檢視大圖')">
+				</div>
+				<div class="photo-item" 
+				     style="background-image: url('./static/mazu2.png'); background-size: cover; background-position: center;" 
+				     onclick="showToast('檢視大圖')">
+				</div>
+				<div class="photo-item" 
+				     style="background-image: url('./static/mazu2.png'); background-size: cover; background-position: center;" 
+				     onclick="showToast('檢視大圖')">
+				</div>
+				<div class="photo-item" 
+				     style="background-image: url('./static/mazu2.png'); background-size: cover; background-position: center;" 
+				     onclick="showToast('檢視大圖')">
+				</div>
+				<div class="photo-item" 
+				     style="background-image: url('./static/mazu2.png'); background-size: cover; background-position: center;" 
+				     onclick="showToast('檢視大圖')">
+				</div>
+                <!-- <div class="photo-item" onclick="showToast('檢視大圖')">🌅</div>
+                <div class="photo-item" onclick="showToast('檢視大圖')">🏙️</div>
+                <div class="photo-item" onclick="showToast('檢視大圖')">🎆</div>
+                <div class="photo-item" onclick="showToast('檢視大圖')">🌌</div>
+                <div class="photo-item" onclick="showToast('檢視大圖')">🏞️</div>
+                <div class="photo-item" onclick="showToast('檢視大圖')">🎭</div> -->
+            </div>
+
+            <div class="section-header">
+                <span class="section-title">特色服務</span>
+                <span class="section-more" onclick="showToast('檢視更多服務')">檢視全部 ›</span>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" onclick="showToast('進入線上諮詢')">
+                    <!-- <div class="service-icon s1">💬</div> -->
+					<img class="service-icon s1" src="./static/logo.png" alt="諮詢" style="object-fit: contain; padding: 8px;">
+                    <div class="service-info">
+                        <div class="service-name">線上諮詢</div>
+                        <div class="service-desc">1對1專業解答</div>
+                    </div>
+                </div>
+                <div class="service-card" onclick="showToast('進入課程中心')">
+                    <!-- <div class="service-icon s2">📖</div> -->
+					<img class="service-icon s1" src="./static/logo.png" alt="諮詢" style="object-fit: contain; padding: 8px;">
+                    <div class="service-info">
+                        <div class="service-name">課程中心</div>
+                        <div class="service-desc">海量優質課程</div>
+                    </div>
+                </div>
+                <div class="service-card" onclick="showToast('進入資源下載')">
+                    <!-- <div class="service-icon s3">📥</div> -->
+					<img class="service-icon s1" src="./static/logo.png" alt="諮詢" style="object-fit: contain; padding: 8px;">
+                    <div class="service-info">
+                        <div class="service-name">資源下載</div>
+                        <div class="service-desc">模板素材免費領</div>
+                    </div>
+                </div>
+                <div class="service-card" onclick="showToast('進入社群入口')">
+                    <!-- <div class="service-icon s4">👥</div> -->
+					<img class="service-icon s1" src="./static/logo.png" alt="諮詢" style="object-fit: contain; padding: 8px;">
+                    <div class="service-info">
+                        <div class="service-name">社群交流</div>
+                        <div class="service-desc">加入專屬交流群</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-area">
+                <div class="divider-line"></div>
+                創意星球實驗室 © 2026<br>
+                記錄科技時代的每一次脈動
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 1500);
+        }
+
+        let isFollowed = false;
+        function toggleFollow() {
+            const btn = document.getElementById('followBtnTop');
+            isFollowed = !isFollowed;
+            if (isFollowed) {
+                btn.textContent = '已關注 ✓';
+                btn.classList.add('followed');
+                showToast('已關注公眾號 ✅');
+            } else {
+                btn.textContent = '+ 關注';
+                btn.classList.remove('followed');
+                showToast('已取消關注');
+            }
+        }
+
+        (function() {
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const totalSlides = dots.length;
+            let currentIndex = 0;
+            let autoPlayTimer;
+
+            function goToSlide(index) {
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, i) => { dot.classList.toggle('active', i === currentIndex); });
+            }
+
+            function nextSlide() { const next = (currentIndex + 1) % totalSlides;
+                goToSlide(next); }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    goToSlide(index);
+                    resetAutoPlay();
+                });
+            });
+
+            let touchStartX = 0,
+                touchEndX = 0;
+            const carousel = document.getElementById('carousel');
+            carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 40) {
+                    if (diff > 0) { currentIndex = (currentIndex + 1) % totalSlides; } else { currentIndex = (currentIndex - 1 + totalSlides) %
+                            totalSlides; }
+                    goToSlide(currentIndex);
+                    resetAutoPlay();
+                }
+            });
+
+            function startAutoPlay() { autoPlayTimer = setInterval(nextSlide, 3500); }
+
+            function resetAutoPlay() { clearInterval(autoPlayTimer);
+                startAutoPlay(); }
+            startAutoPlay();
+            document.addEventListener('visibilitychange', () => { if (document.hidden) clearInterval(autoPlayTimer);
+                else startAutoPlay(); });
+        })();
+
+        console.log('🏝️ 媽祖元素已移至 body 背景');
+        console.log('🙏 光暈 · 剪影 · 蓮花 · 燈籠 · 祥雲');
+    </script>
+</body>
+</html>

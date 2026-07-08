@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>公眾號 · 影片專輯</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border-color: #f0f0f0;
+            --max-width: 680px;
+            --font-body: 15px;
+            --font-small: 13px;
+            --font-title: 18px;
+            --radius-md: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            /* 媽祖背景 */
+            background-color: #d0d8e0;
+            background-image:
+                radial-gradient(ellipse 35% 28% at 28% 22%, rgba(240, 200, 120, 0.45) 0%, rgba(220, 170, 60, 0.18) 35%, transparent 65%),
+                radial-gradient(ellipse 22% 18% at 28% 20%, rgba(255, 230, 160, 0.55) 0%, rgba(240, 200, 100, 0.2) 40%, transparent 60%),
+                conic-gradient(from 0deg at 28% 22%, transparent 0deg, rgba(255, 220, 140, 0.12) 8deg, transparent 16deg, transparent 35deg, rgba(255, 220, 140, 0.10) 42deg, transparent 50deg, transparent 70deg, rgba(255, 220, 140, 0.08) 78deg, transparent 86deg, transparent 105deg, rgba(255, 220, 140, 0.11) 112deg, transparent 120deg, transparent 140deg, rgba(255, 220, 140, 0.09) 148deg, transparent 156deg, transparent 175deg, rgba(255, 220, 140, 0.10) 183deg, transparent 192deg, transparent 210deg, rgba(255, 220, 140, 0.07) 218deg, transparent 226deg, transparent 245deg, rgba(255, 220, 140, 0.12) 253deg, transparent 262deg, transparent 280deg, rgba(255, 220, 140, 0.08) 288deg, transparent 298deg, transparent 315deg, rgba(255, 220, 140, 0.10) 323deg, transparent 332deg, transparent 350deg, rgba(255, 220, 140, 0.09) 358deg, transparent 360deg),
+                url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Cdefs%3E%3CradialGradient id='glow' cx='50%25' cy='35%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffe8a0' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23f0c860' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23d4a840' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='78' cy='60' rx='55' ry='50' fill='url(%23glow)'/%3E%3Cpath d='M78 35 C68 35 58 45 56 58 C54 68 58 78 65 82 C70 84 86 84 91 82 C98 78 102 68 100 58 C98 45 88 35 78 35Z' fill='%23d4a860' opacity='0.65'/%3E%3Cpath d='M60 42 C65 34 72 28 78 26 C84 28 91 34 96 42 L94 44 C89 37 83 32 78 30 C73 32 67 37 62 44Z' fill='%23f0d080' opacity='0.7'/%3E%3Cline x1='64' y1='44' x2='64' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='69' y1='42' x2='69' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='74' y1='40' x2='74' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='78' y1='39' x2='78' y2='47' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='82' y1='40' x2='82' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='87' y1='42' x2='87' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='92' y1='44' x2='92' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cpath d='M78 105 C68 100 55 90 50 82 C48 88 52 96 60 102 C66 106 72 108 78 108 C84 108 90 106 96 102 C104 96 108 88 106 82 C101 90 88 100 78 105Z' fill='%23f0c8c0' opacity='0.45'/%3E%3Cpath d='M78 100 C70 96 60 88 56 80 C54 86 58 94 64 98 C68 101 74 103 78 103 C82 103 88 101 92 98 C98 94 102 86 100 80 C96 88 86 96 78 100Z' fill='%23f5d8d0' opacity='0.5'/%3E%3Cpath d='M30 70 C24 66 18 68 16 72 C14 76 16 80 20 82 C16 84 14 88 16 92 C18 95 24 96 28 94 C30 98 36 99 40 96 C44 92 42 86 38 82 C42 80 44 76 42 72 C40 68 34 66 30 70Z' fill='%23f5e8c0' opacity='0.35'/%3E%3Cpath d='M118 58 C112 54 106 56 104 60 C102 64 104 68 108 70 C104 72 102 76 104 80 C106 83 112 84 116 82 C118 86 124 87 128 84 C132 80 130 74 126 70 C130 68 132 64 130 60 C128 56 122 54 118 58Z' fill='%23f5e8c0' opacity='0.3'/%3E%3Ccircle cx='40' cy='55' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='118' cy='48' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='60' cy='30' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3Ccircle cx='95' cy='28' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3C/svg%3E"),
+                radial-gradient(circle 16px at 6% 38%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 6% 36%, #f0c060 0%, transparent 100%),
+                radial-gradient(circle 16px at 92% 42%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 92% 40%, #f0c060 0%, transparent 100%),
+                radial-gradient(ellipse 8px 14px at 14% 52%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 18% 56%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 9px 15px at 34% 50%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 11px at 54% 54%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 8px 13px at 70% 51%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 84% 55%, #f5d5cd 0%, transparent 100%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 38% auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            background-position: 0 0,0 0,0 0,20% 8%,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: var(--max-width);
+            min-height: 100vh;
+            background-color: #ffffff;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+            overflow-x: hidden;
+            z-index: 2;
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background-color: rgba(255, 255, 255, 0.94);
+            border-bottom: 0.5px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .top-nav .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .top-nav .nav-left:hover { color: var(--text-primary); }
+        .top-nav .nav-left .back-arrow { font-size: 20px; }
+        .top-nav .nav-left .brand-name { font-weight: 500; font-size: 14px; }
+        .top-nav .nav-right { display: flex; gap: 14px; }
+        .top-nav .nav-right .icon-btn {
+            width: 30px; height: 30px; border-radius: 50%;
+            background-color: #f5f5f5; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 14px; color: #555;
+        }
+
+        .account-header { padding: 20px 20px 16px; text-align: center; border-bottom: 0.5px solid #f0f0f0; }
+        .account-avatar {
+            width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 8px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4); object-fit: cover;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .account-name { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+        .account-desc { font-size: 13px; color: var(--text-muted); }
+
+        .album-title-section { padding: 16px 20px 12px; }
+        .album-title { font-size: var(--font-title); font-weight: 700; margin-bottom: 6px; }
+        .album-meta { font-size: var(--font-small); color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+        .album-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: #ccc; }
+
+        .video-list { padding: 0 0 16px; }
+        .video-card { margin: 0 0 12px; background: #fff; border-bottom: 0.5px solid #f5f5f5; }
+        .video-card:last-child { border-bottom: none; }
+
+        .video-thumb-wrap {
+            position: relative; width: 100%; aspect-ratio: 16 / 9;
+            background: #e8e8e8; cursor: pointer; overflow: hidden;
+            background-size: cover; background-position: center;
+        }
+        .video-thumb-wrap:active { opacity: 0.9; }
+        .video-thumb-wrap .play-btn-overlay {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            background: rgba(0, 0, 0, 0.2); transition: background 0.2s;
+        }
+        .video-thumb-wrap:hover .play-btn-overlay { background: rgba(0, 0, 0, 0.35); }
+        .play-icon-circle {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9); display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: #333; box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s; pointer-events: none;
+        }
+        .video-thumb-wrap:active .play-icon-circle { transform: scale(0.9); }
+        .video-duration {
+            position: absolute; bottom: 8px; right: 8px;
+            background: rgba(0,0,0,0.7); color: #fff; font-size: 11px;
+            padding: 3px 8px; border-radius: 4px; letter-spacing: 0.3px; pointer-events: none;
+        }
+
+        .video-info { padding: 12px 16px 14px; }
+        .video-title {
+            font-size: 16px; font-weight: 500; color: var(--text-primary);
+            line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden; letter-spacing: 0.3px;
+        }
+
+        /* 播放模態框 */
+        .video-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92); z-index: 9999; display: none;
+            align-items: center; justify-content: center; flex-direction: column;
+        }
+        .video-modal-overlay.show { display: flex; }
+        .video-modal-close {
+            position: absolute; top: 16px; right: 20px; font-size: 32px; color: #fff;
+            cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center;
+            justify-content: center; background: rgba(255,255,255,0.15); border-radius: 50%; z-index: 10;
+        }
+        .video-player-wrapper {
+            width: 92vw; max-width: 700px; aspect-ratio: 16 / 9;
+            background: #000; border-radius: 6px; overflow: hidden;
+        }
+        .video-player-wrapper video {
+            width: 100%; height: 100%; object-fit: contain; display: block; background: #000;
+        }
+        .video-modal-info { width: 92vw; max-width: 700px; padding: 14px 4px 0; color: #fff; }
+        .video-modal-info .modal-video-title { font-size: 16px; font-weight: 600; line-height: 1.5; margin-bottom: 4px; }
+        .video-modal-info .modal-video-meta { font-size: 13px; color: #ccc; }
+
+        .interaction-bar {
+            display: flex; align-items: center; justify-content: space-around;
+            padding: 14px 20px; border-top: 1px solid var(--border-color); margin: 8px 16px 0;
+        }
+        .interaction-item {
+            display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--text-muted);
+            cursor: pointer; padding: 8px 12px; border-radius: 18px; transition: all 0.2s;
+        }
+        .interaction-item:hover { background-color: #f5f5f5; }
+
+        .follow-card {
+            margin: 12px 20px 16px; padding: 14px 16px;
+            background: linear-gradient(135deg, #fafbfc, #f5f7fa);
+            border: 1px solid var(--border-color); border-radius: var(--radius-md);
+            display: flex; align-items: center; gap: 12px; cursor: pointer;
+        }
+        .follow-card .oa-avatar {
+            width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+            background: linear-gradient(135deg, #07c160, #05a34e);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 20px; letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(7,193,96,0.25);
+        }
+        .follow-card .oa-info { flex: 1; min-width: 0; }
+        .follow-card .oa-name { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+        .follow-card .oa-desc { font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .follow-btn {
+            flex-shrink: 0; align-self: center; padding: 8px 18px;
+            background-color: #07c160; color: #fff; border: none; border-radius: 18px;
+            font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.25s;
+        }
+        .follow-btn.followed { background-color: #e8e8e8; color: #666; }
+
+        .related-section { padding: 12px 20px 20px; border-top: 1px solid #f0f0f0; }
+        .related-card { display: flex; gap: 10px; padding: 10px 0; cursor: pointer; }
+        .related-thumb {
+            width: 72px; height: 54px; border-radius: 5px; flex-shrink: 0;
+            background-size: cover; background-position: center; background-color: #e8e8e8;
+        }
+        .related-info { flex: 1; }
+        .related-title { font-size: 14px; font-weight: 500; }
+        .related-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+        .footer-copyright { text-align: center; padding: 16px 20px 30px; font-size: 11px; color: #ccc; }
+
+        .toast {
+            position: fixed; top: 45%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(0,0,0,0.78); color: #fff; padding: 10px 22px; border-radius: 20px;
+            font-size: 14px; opacity: 0; transition: all 0.3s; z-index: 9998;
+        }
+        .toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        @media (max-width: 680px) {
+            .app-container { max-width: 100%; box-shadow: none; }
+            .video-player-wrapper { width: 96vw; }
+            .video-modal-info { width: 96vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toast" id="toast"></div>
+
+    <div class="app-container">
+        <nav class="top-nav">
+            <div class="nav-left" onclick="history.back()">
+                <span class="back-arrow">←</span>
+                <span class="brand-name">創意星球實驗室</span>
+            </div>
+            <div class="nav-right">
+                <span class="icon-btn" onclick="showToast('搜尋')">🔍</span>
+                <span class="icon-btn" onclick="showToast('更多選項')">⋯</span>
+            </div>
+        </nav>
+
+        <div class="account-header">
+            <img class="account-avatar" src="https://picsum.photos/id/64/112/112" alt="頭像">
+            <div class="account-name">創意星球實驗室</div>
+            <div class="account-desc">專注AI、設計與前沿科技深度報導</div>
+        </div>
+
+        <div class="album-title-section">
+            <h1 class="album-title">🎬 2026年精選影片合集</h1>
+            <div class="album-meta">
+                <span>創意星球實驗室</span>
+                <span class="dot"></span>
+                <span>2026年7月8日</span>
+                <span class="dot"></span>
+                <span id="videoCount">8部影片</span>
+            </div>
+        </div>
+
+        <div class="video-list" id="videoListContainer"></div>
+
+        <div class="interaction-bar">
+            <div class="interaction-item" id="likeBtn" onclick="toggleLike()">
+                <span class="icon">❤️</span> <span>3.2k</span>
+            </div>
+            <div class="interaction-item" onclick="showToast('已新增到在看')"><span class="icon">⭐</span> 在看</div>
+            <div class="interaction-item" onclick="showToast('已複製分享連結')"><span class="icon">🔗</span> 分享</div>
+            <div class="interaction-item" onclick="showToast('開啟留言區')"><span class="icon">💬</span> 留言</div>
+        </div>
+
+        <div class="follow-card" onclick="toggleFollow()">
+            <div class="oa-avatar">創</div>
+            <div class="oa-info">
+                <div class="oa-name">創意星球實驗室</div>
+                <div class="oa-desc">專注AI、網際網路與前沿科技深度報導</div>
+            </div>
+            <button class="follow-btn" id="followBtn" onclick="event.stopPropagation(); toggleFollow();">關注</button>
+        </div>
+
+        <div class="related-section">
+            <div class="section-title" style="font-weight:600; margin-bottom:10px; padding-left:8px; border-left:3px solid #07c160;">推薦影片</div>
+            <div class="related-card" onclick="showToast('跳轉到影片')">
+                <div class="related-thumb" style="background-image:url('https://picsum.photos/id/1011/72/54')"></div>
+                <div class="related-info">
+                    <div class="related-title">2026年最值得關注的5大AI趨勢</div>
+                    <div class="related-meta">2天前 · 觀看 3.8萬</div>
+                </div>
+            </div>
+            <div class="related-card" onclick="showToast('跳轉到影片')">
+                <div class="related-thumb" style="background-image:url('https://picsum.photos/id/1012/72/54')"></div>
+                <div class="related-info">
+                    <div class="related-title">一般人如何利用AI提升工作效率？</div>
+                    <div class="related-meta">5天前 · 觀看 2.1萬</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">創意星球實驗室 © 2026<br>記錄科技時代的每一次脈動</div>
+    </div>
+
+    <div class="video-modal-overlay" id="videoModal" onclick="closeVideoModal()">
+        <span class="video-modal-close" onclick="closeVideoModal()">✕</span>
+        <div class="video-player-wrapper" onclick="event.stopPropagation()">
+            <video id="videoPlayer" controls playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;background:#000;"></video>
+        </div>
+        <div class="video-modal-info" id="videoModalInfo">
+            <div class="modal-video-title" id="modalVideoTitle"></div>
+            <div class="modal-video-meta" id="modalVideoMeta"></div>
+        </div>
+    </div>
+
+    <script>
+        const videoData = [
+            { id:1, title:'探索AI的無限可能：從大語言模型到通用人工智慧的進化之路', thumbnail:'https://picsum.photos/id/1015/800/450', duration:'12:35', views:'4.2萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            { id:2, title:'2026年設計趨勢報告：極簡主義回歸與新擬物化崛起', thumbnail:'https://picsum.photos/id/1025/800/450', duration:'08:22', views:'2.8萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            { id:3, title:'10個提升效率的隱藏技巧，讓你事半功倍', thumbnail:'https://picsum.photos/id/1035/800/450', duration:'15:10', views:'6.1萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            { id:4, title:'深度解析：多模態AI的未來應用場景', thumbnail:'https://picsum.photos/id/1045/800/450', duration:'20:05', views:'4.5萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            // { id:5, title:'初學者指南：如何開始你的AI繪畫之旅', thumbnail:'https://picsum.photos/id/1055/800/450', duration:'18:42', views:'1.2萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            // { id:6, title:'如何建立高效的遠端工作流程', thumbnail:'https://picsum.photos/id/1065/800/450', duration:'11:18', views:'3.3萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            // { id:7, title:'2026上半年必裝App推薦清單', thumbnail:'https://picsum.photos/id/1075/800/450', duration:'09:55', views:'8.7萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' },
+            // { id:8, title:'設計思維：從靈感到落地的完整流程', thumbnail:'https://picsum.photos/id/1085/800/450', duration:'14:30', views:'2.1萬', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4' }
+        ];
+
+        function renderVideoList() {
+            const container = document.getElementById('videoListContainer');
+            if (!container) return;
+            container.innerHTML = videoData.map((video, idx) => `
+                <div class="video-card">
+                    <div class="video-thumb-wrap" style="background-image: url('${video.thumbnail}');" onclick="openVideoModal(${idx})">
+                        <div class="play-btn-overlay"><div class="play-icon-circle">▶</div></div>
+                        <span class="video-duration">${video.duration}</span>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">${video.title}</div>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('videoCount').textContent = `${videoData.length}部影片`;
+        }
+
+        let currentIndex = 0;
+        const videoModal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        function openVideoModal(index) {
+            currentIndex = index;
+            const video = videoData[index];
+            document.getElementById('modalVideoTitle').textContent = video.title;
+            document.getElementById('modalVideoMeta').textContent = `觀看 ${video.views}`;
+            videoPlayer.src = video.videoUrl;
+            videoPlayer.poster = video.thumbnail;
+            videoModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            videoPlayer.play().catch(()=>{});
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('show');
+            document.body.style.overflow = '';
+            videoPlayer.pause();
+            videoPlayer.src = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('show')) closeVideoModal();
+        });
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg; toast.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => toast.classList.remove('show'), 1500);
+        }
+
+        let isLiked = false;
+        function toggleLike() {
+            isLiked = !isLiked;
+            document.getElementById('likeBtn').style.color = isLiked ? '#e74c3c' : '';
+            showToast(isLiked ? '已按讚 ❤️' : '已取消按讚');
+        }
+
+        let isFollowed = true;
+        function initFollowButton() {
+            const btn = document.getElementById('followBtn');
+            if (btn && isFollowed) { btn.textContent = '已關注'; btn.classList.add('followed'); }
+        }
+        function toggleFollow() {
+            const btn = document.getElementById('followBtn');
+            isFollowed = !isFollowed;
+            if (isFollowed) { btn.textContent = '已關注'; btn.classList.add('followed'); showToast('已關注公眾號 ✅'); }
+            else { btn.textContent = '關注'; btn.classList.remove('followed'); showToast('已取消關注'); }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderVideoList();
+            initFollowButton();
+        });
+    </script>
+</body>
+</html>

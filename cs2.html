@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>文章詳情 · 媽祖背景</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+            --accent: #07c160;
+            --accent-hover: #06ad56;
+            --border-color: #e8e8e8;
+            --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --max-width: 680px;
+            --font-size-body: 17px;
+            --font-size-title: 22px;
+            --font-size-small: 13px;
+            --line-height: 1.85;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            /* 媽祖背景 - 只加在 body 上 */
+            background-color: #d0d8e0;
+            background-image:
+                radial-gradient(ellipse 35% 28% at 28% 22%, rgba(240, 200, 120, 0.45) 0%, rgba(220, 170, 60, 0.18) 35%, transparent 65%),
+                radial-gradient(ellipse 22% 18% at 28% 20%, rgba(255, 230, 160, 0.55) 0%, rgba(240, 200, 100, 0.2) 40%, transparent 60%),
+                conic-gradient(from 0deg at 28% 22%,
+                    transparent 0deg, rgba(255, 220, 140, 0.12) 8deg, transparent 16deg,
+                    transparent 35deg, rgba(255, 220, 140, 0.10) 42deg, transparent 50deg,
+                    transparent 70deg, rgba(255, 220, 140, 0.08) 78deg, transparent 86deg,
+                    transparent 105deg, rgba(255, 220, 140, 0.11) 112deg, transparent 120deg,
+                    transparent 140deg, rgba(255, 220, 140, 0.09) 148deg, transparent 156deg,
+                    transparent 175deg, rgba(255, 220, 140, 0.10) 183deg, transparent 192deg,
+                    transparent 210deg, rgba(255, 220, 140, 0.07) 218deg, transparent 226deg,
+                    transparent 245deg, rgba(255, 220, 140, 0.12) 253deg, transparent 262deg,
+                    transparent 280deg, rgba(255, 220, 140, 0.08) 288deg, transparent 298deg,
+                    transparent 315deg, rgba(255, 220, 140, 0.10) 323deg, transparent 332deg,
+                    transparent 350deg, rgba(255, 220, 140, 0.09) 358deg, transparent 360deg),
+                url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 200'%3E%3Cdefs%3E%3CradialGradient id='glow' cx='50%25' cy='35%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffe8a0' stop-opacity='0.9'/%3E%3Cstop offset='40%25' stop-color='%23f0c860' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%23d4a840' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='78' cy='60' rx='55' ry='50' fill='url(%23glow)'/%3E%3Cpath d='M78 35 C68 35 58 45 56 58 C54 68 58 78 65 82 C70 84 86 84 91 82 C98 78 102 68 100 58 C98 45 88 35 78 35Z' fill='%23d4a860' opacity='0.65'/%3E%3Cpath d='M60 42 C65 34 72 28 78 26 C84 28 91 34 96 42 L94 44 C89 37 83 32 78 30 C73 32 67 37 62 44Z' fill='%23f0d080' opacity='0.7'/%3E%3Cline x1='64' y1='44' x2='64' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='69' y1='42' x2='69' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='74' y1='40' x2='74' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='78' y1='39' x2='78' y2='47' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='82' y1='40' x2='82' y2='48' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='87' y1='42' x2='87' y2='50' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='92' y1='44' x2='92' y2='52' stroke='%23f5e0a0' stroke-width='1.2' opacity='0.6'/%3E%3Cpath d='M78 105 C68 100 55 90 50 82 C48 88 52 96 60 102 C66 106 72 108 78 108 C84 108 90 106 96 102 C104 96 108 88 106 82 C101 90 88 100 78 105Z' fill='%23f0c8c0' opacity='0.45'/%3E%3Cpath d='M78 100 C70 96 60 88 56 80 C54 86 58 94 64 98 C68 101 74 103 78 103 C82 103 88 101 92 98 C98 94 102 86 100 80 C96 88 86 96 78 100Z' fill='%23f5d8d0' opacity='0.5'/%3E%3Cpath d='M30 70 C24 66 18 68 16 72 C14 76 16 80 20 82 C16 84 14 88 16 92 C18 95 24 96 28 94 C30 98 36 99 40 96 C44 92 42 86 38 82 C42 80 44 76 42 72 C40 68 34 66 30 70Z' fill='%23f5e8c0' opacity='0.35'/%3E%3Cpath d='M118 58 C112 54 106 56 104 60 C102 64 104 68 108 70 C104 72 102 76 104 80 C106 83 112 84 116 82 C118 86 124 87 128 84 C132 80 130 74 126 70 C130 68 132 64 130 60 C128 56 122 54 118 58Z' fill='%23f5e8c0' opacity='0.3'/%3E%3Ccircle cx='40' cy='55' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='118' cy='48' r='1.5' fill='%23ffe8a0' opacity='0.5'/%3E%3Ccircle cx='60' cy='30' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3Ccircle cx='95' cy='28' r='1' fill='%23ffe8a0' opacity='0.4'/%3E%3C/svg%3E"),
+                radial-gradient(circle 16px at 6% 38%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 6% 36%, #f0c060 0%, transparent 100%),
+                radial-gradient(circle 16px at 92% 42%, #c94030 0%, #a02020 60%, transparent 100%),
+                radial-gradient(circle 10px at 92% 40%, #f0c060 0%, transparent 100%),
+                radial-gradient(ellipse 8px 14px at 14% 52%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 18% 56%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 9px 15px at 34% 50%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 11px at 54% 54%, #f5d5cd 0%, transparent 100%),
+                radial-gradient(ellipse 8px 13px at 70% 51%, #f0c8c0 0%, transparent 100%),
+                radial-gradient(ellipse 7px 12px at 84% 55%, #f5d5cd 0%, transparent 100%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 38% auto, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            background-position: 0 0,0 0,0 0,20% 8%,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .article-container {
+            width: 100%;
+            max-width: var(--max-width);
+            min-height: 100vh;
+            background-color: #ffffff;
+            position: relative;
+            box-shadow: var(--shadow-medium);
+            overflow-x: hidden;
+            z-index: 2;
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background-color: rgba(255, 255, 255, 0.94);
+            border-bottom: 0.5px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .top-nav .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .top-nav .nav-left:hover { color: var(--text-primary); }
+        .top-nav .nav-left .back-arrow { font-size: 20px; line-height: 1; }
+        .top-nav .nav-left .brand-name { font-weight: 500; font-size: 14px; }
+        .top-nav .nav-right { display: flex; align-items: center; gap: 14px; }
+        .top-nav .nav-right .icon-btn {
+            width: 30px; height: 30px; border-radius: 50%;
+            background-color: #f5f5f5; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: background-color 0.2s; font-size: 14px; color: #555;
+        }
+        .top-nav .nav-right .icon-btn:hover { background-color: #e8e8e8; }
+
+        .article-header { padding: 24px 20px 16px; }
+        .article-title {
+            font-size: var(--font-size-title); font-weight: 700; line-height: 1.45;
+            color: var(--text-primary); margin-bottom: 14px; letter-spacing: 0.3px;
+        }
+        .article-meta {
+            display: flex; align-items: center; gap: 10px;
+            font-size: var(--font-size-small); color: var(--text-muted); flex-wrap: wrap;
+        }
+        .author-avatar {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: #fff; flex-shrink: 0;
+        }
+        .author-name { font-weight: 500; color: #576b95; cursor: pointer; }
+        .author-name:hover { text-decoration: underline; }
+        .dot-separator { width: 3px; height: 3px; border-radius: 50%; background-color: #ccc; flex-shrink: 0; }
+        .publish-time { color: var(--text-muted); }
+        .location { color: #576b95; cursor: pointer; font-size: 12px; }
+        .location:hover { text-decoration: underline; }
+
+        .cover-placeholder {
+            width: 100%; aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #3a4a6a 0%, #5a7a8a 30%, #4a6a7a 60%, #2a3a5a 100%);
+            display: flex; align-items: center; justify-content: center;
+            color: #f0e8d0; font-size: 42px; letter-spacing: 2px; font-weight: 700;
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+        }
+        .cover-caption { text-align: center; font-size: 12px; color: #aaa; padding: 8px 20px 0; }
+
+        .article-body {
+            padding: 20px 20px 28px; font-size: var(--font-size-body);
+            color: #2a2a2a; letter-spacing: 0.3px; word-break: break-word;
+            line-height: var(--line-height);
+        }
+        .article-body p { margin-bottom: 16px; }
+        .article-body h3 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 22px 0 10px; }
+        .highlight-text { color: #576b95; font-weight: 500; }
+        .article-body blockquote {
+            border-left: 4px solid #d0d0d0; padding: 12px 16px; margin: 16px 0;
+            background-color: #fafafa; border-radius: 0 6px 6px 0; color: #555; font-size: 15px;
+        }
+        .article-body .divider { border: none; border-top: 1px dashed #e0e0e0; margin: 24px 0; }
+        .article-body .end-mark { text-align: center; color: #bbb; font-size: 13px; margin-top: 20px; }
+
+        .interaction-bar {
+            display: flex; align-items: center; justify-content: space-around;
+            padding: 14px 20px; border-top: 1px solid var(--border-color); margin: 0 16px; gap: 4px;
+        }
+        .interaction-item {
+            display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--text-muted);
+            cursor: pointer; padding: 8px 12px; border-radius: 18px; transition: all 0.2s; white-space: nowrap;
+        }
+        .interaction-item:hover { background-color: #f5f5f5; color: var(--text-secondary); }
+        .interaction-item .icon { font-size: 17px; line-height: 1; }
+        .interaction-item.liked { color: #e74c3c; }
+        .interaction-item.liked .icon { animation: heartBeat 0.5s ease; }
+        @keyframes heartBeat {
+            0%,100%{ transform: scale(1); } 30%{ transform: scale(1.35); } 60%{ transform: scale(0.9); } 80%{ transform: scale(1.1); }
+        }
+
+        .follow-card {
+            margin: 12px 20px 16px; padding: 14px 16px;
+            background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+            border: 1px solid var(--border-color); border-radius: var(--radius-md);
+            display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.25s;
+        }
+        .follow-card:hover { border-color: #d0d0d0; box-shadow: var(--shadow-light); transform: translateY(-1px); }
+        .follow-card .oa-avatar {
+            width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+            background: linear-gradient(135deg, #07c160 0%, #05a34e 100%);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(7, 193, 96, 0.25);
+        }
+        .follow-card .oa-info { flex: 1; min-width: 0; }
+        .follow-card .oa-name { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+        .follow-card .oa-desc { font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .follow-btn {
+            flex-shrink: 0; padding: 7px 16px; background-color: var(--accent); color: #fff;
+            border: none; border-radius: 18px; font-size: 13px; font-weight: 500;
+            cursor: pointer; transition: all 0.25s; letter-spacing: 0.5px; white-space: nowrap;
+        }
+        .follow-btn:hover { background-color: var(--accent-hover); transform: scale(1.03); box-shadow: 0 2px 10px rgba(7, 193, 96, 0.3); }
+        .follow-btn.followed { background-color: #e8e8e8; color: #666; }
+        .follow-btn.followed:hover { background-color: #ddd; transform: none; box-shadow: none; }
+
+        .related-section {
+            padding: 12px 20px 20px; margin: 0 4px; border-top: 1px solid #f0f0f0;
+        }
+        .related-section .section-title {
+            font-size: 14px; font-weight: 600; color: var(--text-primary);
+            margin-bottom: 10px; letter-spacing: 0.3px; padding-left: 8px; border-left: 3px solid var(--accent);
+        }
+        .related-card {
+            display: flex; gap: 10px; padding: 10px 0; cursor: pointer;
+            transition: opacity 0.2s; border-bottom: 0.5px solid #f5f5f5;
+        }
+        .related-card:last-child { border-bottom: none; }
+        .related-card:hover { opacity: 0.7; }
+        .related-card .related-thumb {
+            width: 72px; height: 54px; border-radius: 5px; flex-shrink: 0;
+            object-fit: cover; display: flex; align-items: center; justify-content: center;
+            font-size: 18px; color: #fff; background-size: cover; background-position: center;
+        }
+        .related-card .related-info { flex: 1; min-width: 0; }
+        .related-card .related-title {
+            font-size: 14px; font-weight: 500; color: var(--text-primary); line-height: 1.5;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .related-card .related-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+        .footer-copyright {
+            text-align: center; padding: 16px 20px 30px; font-size: 11px;
+            color: #ccc; border-top: 0.5px solid #f5f5f5; margin: 0 16px; letter-spacing: 0.3px;
+        }
+
+        .toast {
+            position: fixed; top: 45%; left: 50%; transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(0, 0, 0, 0.78); color: #fff; padding: 10px 22px; border-radius: 20px;
+            font-size: 14px; pointer-events: none; opacity: 0; transition: all 0.3s ease; z-index: 9999;
+            white-space: nowrap; letter-spacing: 0.5px;
+        }
+        .toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+        @media (max-width: 680px) {
+            body { background-color: #fff; padding: 0; }
+            .article-container { max-width: 100%; box-shadow: none; min-height: 100vh; }
+            .article-title { font-size: 20px; }
+            .article-body { font-size: 16px; padding: 16px 16px 24px; }
+            .article-header { padding: 20px 16px 12px; }
+            .interaction-bar { margin: 0 6px; padding: 12px 6px; gap: 0; }
+            .interaction-item { padding: 6px 8px; font-size: 12px; gap: 3px; }
+            .follow-card { margin: 10px 12px 14px; padding: 12px; }
+            .related-section { padding: 10px 12px 16px; margin: 0; }
+            .footer-copyright { margin: 0 8px; }
+            .top-nav { padding: 10px 12px; }
+            .cover-placeholder { font-size: 32px; }
+        }
+        @media (min-width: 681px) {
+            body { padding: 16px 8px; background-color: #e0e0e0; }
+            .article-container { border-radius: 12px; overflow: hidden; min-height: auto; margin-bottom: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toast" id="toast"></div>
+
+    <div class="article-container">
+        <nav class="top-nav">
+            <div class="nav-left" onclick="history.back()">
+                <span class="back-arrow">←</span>
+                <span class="brand-name" id="navBrand">創意星球實驗室</span>
+            </div>
+            <div class="nav-right">
+                <span class="icon-btn" onclick="showToast('搜尋文章')">🔍</span>
+                <span class="icon-btn" onclick="showToast('更多選項')">⋯</span>
+            </div>
+        </nav>
+
+        <div class="article-header">
+            <h1 class="article-title" id="articleTitle">文章標題</h1>
+            <div class="article-meta">
+                <span class="author-avatar" id="authorAvatar">創</span>
+                <span class="author-name" id="authorName">創意星球實驗室</span>
+                <span class="dot-separator"></span>
+                <span class="publish-time" id="publishTime"></span>
+                <span class="dot-separator"></span>
+                <span class="location" onclick="showToast('發佈於 四川')">📍 四川</span>
+            </div>
+        </div>
+
+        <div class="cover-placeholder" id="coverImage">🌌 AI · 未來科技</div>
+        <p class="cover-caption" id="coverCaption">▲ 圖片來源：創意星球實驗室原創</p>
+
+        <div class="article-body" id="articleBody"></div>
+
+        <div class="interaction-bar">
+            <div class="interaction-item" id="likeBtn" onclick="toggleLike()">
+                <span class="icon">❤️</span>
+                <span class="count" id="likeCount">1.8k</span>
+            </div>
+            <div class="interaction-item" onclick="showToast('已新增到在看')">
+                <span class="icon">⭐</span>
+                <span>在看</span>
+            </div>
+            <div class="interaction-item" onclick="showToast('已複製分享連結')">
+                <span class="icon">🔗</span>
+                <span>分享</span>
+            </div>
+            <div class="interaction-item" onclick="showToast('開啟留言區')">
+                <span class="icon">💬</span>
+                <span>留言</span>
+            </div>
+        </div>
+
+        <div class="follow-card" onclick="toggleFollow()">
+            <div class="oa-avatar">創</div>
+            <div class="oa-info">
+                <div class="oa-name">創意星球實驗室</div>
+                <div class="oa-desc">專注AI、網際網路與前沿科技深度報導</div>
+            </div>
+            <button class="follow-btn" id="followBtn" onclick="event.stopPropagation(); toggleFollow();">關注</button>
+        </div>
+
+        <div class="related-section">
+            <div class="section-title">推薦閱讀</div>
+            <div class="related-card" onclick="showToast('跳轉到文章')">
+                <div class="related-thumb" style="background-image: url('https://picsum.photos/id/1011/72/54')"></div>
+                <div class="related-info">
+                    <div class="related-title">2026年最值得關注的5大AI趨勢</div>
+                    <div class="related-meta">2天前 · 閱讀 3.8萬</div>
+                </div>
+            </div>
+            <div class="related-card" onclick="showToast('跳轉到文章')">
+                <div class="related-thumb" style="background-image: url('https://picsum.photos/id/1012/72/54')"></div>
+                <div class="related-info">
+                    <div class="related-title">一般人如何利用AI提升工作效率？</div>
+                    <div class="related-meta">5天前 · 閱讀 2.1萬</div>
+                </div>
+            </div>
+            <div class="related-card" onclick="showToast('跳轉到文章')">
+                <div class="related-thumb" style="background-image: url('https://picsum.photos/id/1013/72/54')"></div>
+                <div class="related-info">
+                    <div class="related-title">深度解析：多模態AI的未來應用場景</div>
+                    <div class="related-meta">1週前 · 閱讀 4.5萬</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            創意星球實驗室 © 2026<br>
+            記錄科技時代的每一次脈動
+        </div>
+    </div>
+
+    <script>
+        // 動態日期計算
+        function getRelativeDate(daysAgo) {
+            const now = new Date();
+            const target = new Date(now);
+            target.setDate(now.getDate() - daysAgo);
+            const year = target.getFullYear();
+            const month = target.getMonth() + 1;
+            const day = target.getDate();
+            return `${year}年${month}月${day}日`;
+        }
+
+        // 文章資料（使用 daysAgo 控制日期）
+        const articles = [
+            {
+                id: 1,
+                title: '探索AI的無限可能：從大語言模型到通用人工智慧的進化之路',
+                source: '創意星球實驗室',
+                daysAgo: 0,
+                thumb: 'https://picsum.photos/id/1015/800/450',
+                reads: '4.2萬',
+                body: `
+                    <p>在過去的兩年裡，<span class="highlight-text">大語言模型（LLM）</span>以驚人的速度重塑了我們與技術互動的方式。從簡單的文字生成到複雜的多模態推理，AI的能力邊界正在以前所未有的速度向外擴展。</p>
+                    <h3>一、大語言模型的崛起</h3>
+                    <p>從GPT系列到Claude，從文心一言到通義千問，各大廠商紛紛入局。但真正的變革不在於模型本身，而在於<span class="highlight-text">AI如何融入日常生活的每一個角落</span>——教育、醫療、創作、程式設計……每一個領域都在被重新定義。</p>
+                    <h3>二、多模態融合的趨勢</h3>
+                    <p>當AI不僅能理解文字，還能感知圖像、聲音、甚至物理世界的時候，我們的生活會變成什麼樣子？這不再是科幻電影中的場景，而是正在發生的事實。多模態AI正在打通視覺、聽覺與語言的壁壘。</p>
+                    <blockquote>"人工智慧不是要取代人類，而是要放大人類的創造力。最好的AI，是讓你感覺不到它存在的AI。"<br>—— 某AI研究員</blockquote>
+                    <h3>三、通用人工智慧的曙光</h3>
+                    <p>展望未來，通用人工智慧（AGI）的曙光似乎已經在地平線上浮現。但與此同時，安全對齊、倫理邊界、以及人機協作的最佳實踐，仍然是我們需要審慎思考的核心議題。</p>
+                    <p>在這個技術日新月異的時代，保持學習、保持好奇，或許是我們每個人最應該擁有的「超能力」。讓我們一起，見證這場偉大的變革。</p>
+                    <hr class="divider">
+                    <p class="end-mark">· 全文完 ·</p>
+                `
+            },
+            {
+                id: 2,
+                title: '2026年設計趨勢報告：極簡主義回歸與新擬物化崛起',
+                source: '設計思維研究室',
+                daysAgo: 0,
+                thumb: 'https://picsum.photos/id/1025/800/450',
+                reads: '2.8萬',
+                body: `
+                    <p>設計趨勢每年都在變化，2026年我們看到了極簡主義的強勢回歸，同時新擬物化風格也開始在介面設計中佔據一席之地。</p>
+                    <h3>色彩趨勢</h3>
+                    <p>今年的色彩偏向自然、沉穩的色調，大地色系與海洋藍將成為主流。</p>
+                    <p>更多內容請關注後續更新……</p>
+                    <hr class="divider">
+                    <p class="end-mark">· 全文完 ·</p>
+                `
+            },
+            {
+                id: 3,
+                title: '10個提升效率的隱藏技巧，讓你事半功倍',
+                source: '效率生活家',
+                daysAgo: 1,
+                thumb: 'https://picsum.photos/id/1035/800/450',
+                reads: '6.1萬',
+                body: `
+                    <p>效率工具是現代工作者的必備利器。我們精選了10款令人驚豔的工具，涵蓋筆記、專案管理、自動化、影像處理等領域。</p>
+                    <h3>1. 筆記工具</h3>
+                    <p>選擇一款適合自己的筆記工具，能大幅提升資訊整理效率。</p>
+                    <h3>2. 自動化工具</h3>
+                    <p>將重複性工作交給機器，釋放你的創造力。</p>
+                    <hr class="divider">
+                    <p class="end-mark">· 全文完 ·</p>
+                `
+            }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = parseInt(urlParams.get('id')) || 1;
+        const article = articles.find(a => a.id === articleId);
+
+        if (article) {
+            document.getElementById('articleTitle').textContent = article.title;
+            document.getElementById('navBrand').textContent = article.source;
+            document.getElementById('authorName').textContent = article.source;
+            document.getElementById('authorAvatar').textContent = article.source.charAt(0);
+            // 動態日期填充
+            const displayDate = getRelativeDate(article.daysAgo);
+            document.getElementById('publishTime').textContent = displayDate + ' · 閱讀 ' + article.reads;
+            const cover = document.getElementById('coverImage');
+            cover.style.backgroundImage = `url('${article.thumb}')`;
+            cover.textContent = '';
+            document.getElementById('coverCaption').innerHTML = `▲ 圖片來源：${article.source}原創`;
+            document.getElementById('articleBody').innerHTML = article.body;
+        } else {
+            document.getElementById('articleTitle').textContent = '文章不存在';
+            document.getElementById('articleBody').innerHTML = '<p style="text-align:center;color:#999;">抱歉，您訪問的文章不存在或已刪除。</p>';
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => toast.classList.remove('show'), 1500);
+        }
+
+        let isLiked = false;
+        function toggleLike() {
+            const likeBtn = document.getElementById('likeBtn');
+            isLiked = !isLiked;
+            if (isLiked) {
+                likeBtn.classList.add('liked');
+                const icon = likeBtn.querySelector('.icon');
+                icon.style.animation = 'none';
+                icon.offsetHeight;
+                icon.style.animation = 'heartBeat 0.5s ease';
+                showToast('已按讚 ❤️');
+            } else {
+                likeBtn.classList.remove('liked');
+                showToast('已取消按讚');
+            }
+        }
+
+        let isFollowed = true;
+		
+		// 页面加载时设置按钮为已关注状态
+		document.addEventListener('DOMContentLoaded', function() {
+		    const followBtn = document.getElementById('followBtn');
+		    if (followBtn) {
+		        followBtn.textContent = '已關注';
+		        followBtn.classList.add('followed');
+		    }
+		});
+		
+        function toggleFollow() {
+            const followBtn = document.getElementById('followBtn');
+            isFollowed = !isFollowed;
+            if (isFollowed) {
+                followBtn.textContent = '已關注';
+                followBtn.classList.add('followed');
+                showToast('已關注公眾號 ✅');
+            } else {
+                followBtn.textContent = '關注';
+                followBtn.classList.remove('followed');
+                showToast('已取消關注');
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'l' && e.ctrlKey) { e.preventDefault(); toggleLike(); }
+            if (e.key === 'f' && e.ctrlKey) { e.preventDefault(); toggleFollow(); }
+        });
+    </script>
+</body>
+</html>
